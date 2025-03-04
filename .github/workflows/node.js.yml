@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "v2 tictactoe", "v3 tictactoe" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "v3 tictactoe" ]
 
 jobs:
   build:
@@ -27,5 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - run: npm run dev & 
+    - run: npm cypress:run
